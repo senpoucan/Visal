@@ -9,10 +9,8 @@ export default function EsmaUlHusnaScreen({ navigation }) {
 
   const renderItem = ({ item }) => (
     <View style={styles.card}>
-      <View style={styles.iconContainer}>
-        <View style={styles.goldCircle}>
-          <Text style={styles.arabicText}>{item.nameAr}</Text>
-        </View>
+      <View style={styles.goldBox}>
+        <Text style={styles.arabicText} adjustsFontSizeToFit numberOfLines={1}>{item.nameAr}</Text>
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.latinText}>{item.id}. {item.nameTr}</Text>
@@ -53,6 +51,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'space-between', 
     paddingHorizontal: SPACING.lg, 
+    paddingTop: Platform.OS === 'ios' ? 60 : 40,
     paddingBottom: 20 
   },
   backBtn: { 
@@ -95,24 +94,23 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 3
   },
-  iconContainer: {
-    marginRight: 16
-  },
-  goldCircle: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+  goldBox: {
+    width: 80,
+    height: 50,
+    borderRadius: 10,
     backgroundColor: '#0a0a0a',
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: '#D4AF37',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 16
   },
   arabicText: {
     color: '#D4AF37',
     fontSize: 22,
     fontWeight: '700',
-    fontFamily: Platform.OS === 'ios' ? 'System' : 'sans-serif', // In future if custom font comes
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'sans-serif',
+    textAlign: 'center'
   },
   textContainer: {
     flex: 1,
