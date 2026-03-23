@@ -546,12 +546,12 @@ const styles = StyleSheet.create({
   },
   greeting: { 
     color: COLORS.textMuted, 
-    fontSize: 14, 
+    fontSize: 12, 
     fontWeight: '600' 
   },
   greetingName: { 
     color: COLORS.text, 
-    fontSize: 14, 
+    fontSize: 12, 
     fontWeight: '800' 
   },
   logoutBtn: {
