@@ -50,7 +50,7 @@ export default function PrayerGuideScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 40 : 20 }]}>
+      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 60 : 45 }]}>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
           <Text style={styles.backIcon}>❮</Text>
         </TouchableOpacity>
