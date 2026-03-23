@@ -22,7 +22,7 @@ export default function EsmaUlHusnaScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.safe}>
       {/* HEADER */}
-      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 40 : 20 }]}>
+      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 75 : 55 }]}>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.7}>
           <Text style={styles.backIcon}>❮</Text>
         </TouchableOpacity>

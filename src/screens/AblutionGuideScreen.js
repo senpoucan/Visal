@@ -9,7 +9,7 @@ export default function AblutionGuideScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 40 : 20 }]}>
+      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 60 : 45 }]}>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.7}>
           <Text style={styles.backIcon}>❮</Text>
         </TouchableOpacity>

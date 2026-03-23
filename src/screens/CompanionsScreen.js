@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: SPACING.lg,
-    paddingTop: 50,
+    paddingTop: Platform.OS === 'ios' ? 70 : 50,
     backgroundColor: COLORS.bgCard,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,

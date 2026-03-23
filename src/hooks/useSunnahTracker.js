@@ -27,7 +27,9 @@ export function useSunnahTracker() {
       setLoading(false);
       return;
     }
-    setLoading(true);
+    if (!historyRef.current || historyRef.current.length === 0) {
+      setLoading(true);
+    }
     setError(null);
     try {
       const sunnahDocRef = doc(db, 'users', user.uid, 'stats', 'sunnah');

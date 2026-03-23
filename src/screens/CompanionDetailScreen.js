@@ -36,7 +36,7 @@ export default function CompanionDetailScreen({ route, navigation }) {
     <SafeAreaView style={styles.safe}>
       
       {/* ── HEADER ── */}
-      <View style={styles.header}>
+      <View style={[styles.header, { paddingTop: Platform.OS === 'ios' ? 60 : 45 }]}>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()} activeOpacity={0.7}>
           <Text style={styles.backIcon}>←</Text>
         </TouchableOpacity>
