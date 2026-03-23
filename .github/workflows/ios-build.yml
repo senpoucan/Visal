@@ -1,0 +1,33 @@
+name: Build iOS with EAS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Bu sayede GitHub üzerinden manuel olarak da tetiklenebilir
+
+jobs:
+  build:
+    name: Build iOS App
+    runs-on: ubuntu-latest # Eğer doğrudan GitHub'ın Mac sunucularında derlemek istersen "macos-latest" yapabilir ve komuta --local ekleyebilirsin
+    steps:
+      - name: Check for REPOSITORY
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: npm
+
+      - name: Setup Expo and EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }} # Github deponda Settings -> Secrets and variables kısmından EXPO_TOKEN eklemelisin
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build iOS App
+        run: eas build --platform ios --profile preview --non-interactive
