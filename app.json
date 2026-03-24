@@ -24,12 +24,10 @@
         "backgroundColor": "#0a1a0a"
       },
       "package": "com.visal.quranapp",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": [
         "android.permission.INTERNET",
-        "android.permission.ACCESS_NETWORK_STATE",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.MODIFY_AUDIO_SETTINGS"
+        "android.permission.ACCESS_NETWORK_STATE"
       ]
     },
     "web": {
@@ -37,7 +35,13 @@
     },
     "plugins": [
       "expo-av",
-      "expo-image-picker",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Uygulama, profil resmi ayarlamanız için galerinize erişir.",
+          "cameraPermission": false
+        }
+      ],
       [
         "expo-build-properties",
         {
