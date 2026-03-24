@@ -1,0 +1,48 @@
+name: Build Android AAB (Local)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android App (.aab)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for REPOSITORY
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # Zulu is also fine
+          java-version: '17' # Expo SDK 50+ works best with Java 17
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Build Android App bundle
+        run: eas build --platform android --profile production --local --non-interactive --output="./app-release.aab"
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EAS_NO_VCS: 1
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-production-bundle
+          path: ./app-release.aab

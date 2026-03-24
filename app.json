@@ -24,6 +24,7 @@
         "backgroundColor": "#0a1a0a"
       },
       "package": "com.visal.quranapp",
+      "versionCode": 1,
       "permissions": [
         "android.permission.INTERNET",
         "android.permission.ACCESS_NETWORK_STATE",
